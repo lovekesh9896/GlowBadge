@@ -34,6 +34,7 @@ module.exports.create = async function (req, res) {
     if (req.body.password != req.body.confirm_password) {
       return res.redirect("back");
     }
+    console.log(req.body);
     let user = await User.findOne({ email: req.body.email });
     if (!user) {
       req.body.clientId = await bcrypt.hash(req.body.email, 10);
