@@ -17,11 +17,7 @@ cloudinary.config({
 // badge url and badgeQR and puts them on top of each other
 let createCirtificate = async function(badgeURL, badgeQr){
     try {
-<<<<<<< HEAD
-        let bottom = await Jimp.read(__dirname + '/assets/images/cirtificate.png');
-=======
         let bottom = await Jimp.read('https://res.cloudinary.com/lovekesh9896/image/upload/v1604509331/lgmw5gwhetgj0thwvcpm.jpg');
->>>>>>> dbec6180481ae44b64914f56cffdd304db2ec967
         let top1 = await Jimp.read(__dirname + clientLogo);
         let badge = await Jimp.read(badgeURL);
         let qr = await Jimp.read(badgeQr);
