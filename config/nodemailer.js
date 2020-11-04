@@ -8,8 +8,8 @@ smtp = {
     port : 587,
     secure : false,
     auth : {
-        user : "kumarmehlan@gmail.com",
-        pass : "loki@nanu",
+        user : process.env.USER_NAME,
+        pass : process.env.PASS, // enter your password // dont' forgot to change above email
     }
 }
 
