@@ -18,7 +18,7 @@ cloudinary.config({
 let createCirtificate = async function(badgeURL, badgeQr){
     try {
         let bottom = await Jimp.read('https://res.cloudinary.com/lovekesh9896/image/upload/v1604509331/lgmw5gwhetgj0thwvcpm.jpg');
-        let top1 = await Jimp.read(__dirname + clientLogo);
+        let top1 = await Jimp.read(clientLogo);
         let badge = await Jimp.read(badgeURL);
         let qr = await Jimp.read(badgeQr);
         let font = await Jimp.loadFont(Jimp.FONT_SANS_128_BLACK);
