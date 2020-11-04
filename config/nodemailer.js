@@ -8,8 +8,8 @@ smtp = {
     port : 587,
     secure : false,
     auth : {
-        user : process.env.USER_NAME,
-        pass : process.env.PASS, // enter your password // dont' forgot to change above email
+        user : "kumarmehlan@gmail.com",
+        pass : "loki@nanu", // enter your password // dont' forgot to change above email
     }
 }
 
@@ -17,6 +17,8 @@ let transporter = nodeMailer.createTransport(smtp);
 
 let renderTemplate = (data, relativePath)=> {
     let mailHTML;
+	console.log(process.env.PASS);
+	console.log(process.env.USER_NAME);
     ejs.renderFile(
         path.join(__dirname, '../views/mailer', relativePath),
         data,

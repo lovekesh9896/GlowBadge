@@ -25,7 +25,7 @@ $('.grid-item').on('click', function(e){
     $('#backdrop').fadeIn();
     $('#backdrop').css('display', 'flex');
     let id = $('#student-id').text();
-    let string = `https://chart.googleapis.com/chart?cht=qr&chl=localhost:8000/verify-badge/${id}${badgeId}&chs=180x180&chld=L|0`;
+    let string = `https://chart.googleapis.com/chart?cht=qr&chl=http://3.139.62.138/verify-badge/${id}${badgeId}&chs=180x180&chld=L|0`;
     $('#qr-code').attr('src', string);
 });
 

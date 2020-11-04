@@ -93,6 +93,7 @@ $(document).ready(async () => {
         $("#upload-asset-button").prop("disabled", true);
         $("#upload-asset-button").css('background-color', 'lightgrey');
         $("#upload-asset-button").text('Save Changes');
+	location.reload();
         new Noty({
           text: 'File System Updated Successfully',
           type: 'error', 

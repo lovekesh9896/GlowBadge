@@ -53,7 +53,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
-
+console.log("process.env", process.env.USER_NAME);
+console.log("process.env.pass",process.env.PASS);
 // use express router
 app.use("/", require("./routes"));
 
