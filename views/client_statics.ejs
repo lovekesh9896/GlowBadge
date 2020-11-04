@@ -43,100 +43,107 @@
         <img src="/images/standing-boy.jpeg" alt="standing boy">
         <button><%= eval(user.badgeStatics.join('+')) %></button>
     </div>
-    <div id="right-section">
-        <h3 class="statistics-heading">Badge Statistics</h3>
-        <div id="badge-statics">
-            <!-- Badge bar graph numbers are based upon number of badge in a particular month -->
-            <div id="graph">
-                <canvas id="myChart"></canvas>
-            </div>
-            <div id="badge-numbers">
-                <!-- Max badge and Min badge are absed on number of madges given in total -->
-                <div class="badge" id="max-badge">
-                    <h4>Max Badge issued</h4>
-                    <div class="badge-img">
-                        <img src="<%= user.badgeId[user.badgeId.length - 1].url %>" alt="max issued badge">
-                        <span>
-                            <strong><%= user.badgeId[user.badgeId.length - 1].url ? user.badgeId[user.badgeId.length - 1].timesUsed : '0' %></strong> 
-                            Badges issued 
-                        </span>
+    <% if(user.badgeId.length > 0) { %>
+        <div id="right-section">
+            <h3 class="statistics-heading">Badge Statistics</h3>
+            <div id="badge-statics">
+                <!-- Badge bar graph numbers are based upon number of badge in a particular month -->
+                <div id="graph">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div id="badge-numbers">
+                    <!-- Max badge and Min badge are absed on number of madges given in total -->
+                    <div class="badge" id="max-badge">
+                        <h4>Max Badge issued</h4>
+                        <div class="badge-img">
+                            <img src="<%= user.badgeId[user.badgeId.length - 1].url %>" alt="max issued badge">
+                            <span>
+                                <strong><%= user.badgeId[user.badgeId.length - 1].url ? user.badgeId[user.badgeId.length - 1].timesUsed : '0' %></strong> 
+                                Badges issued 
+                            </span>
+                        </div>
+                    </div>
+                    <div class="badge" id="min-badge">
+                        <h4>Min Badge issued</h4>
+                        <div class="badge-img">
+                            <img src="<%= user.badgeId[0].url %>" alt="max issued badge">
+                            <span>
+                                <strong><%= user.badgeId[0].url ? user.badgeId[0].timesUsed : '0' %></strong> 
+                                Badges issued 
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div class="badge" id="min-badge">
-                    <h4>Min Badge issued</h4>
-                    <div class="badge-img">
-                        <img src="<%= user.badgeId[0].url %>" alt="max issued badge">
-                        <span>
-                            <strong><%= user.badgeId[0].url ? user.badgeId[0].timesUsed : '0' %></strong> 
-                            Badges issued 
-                        </span>
-                    </div>
+            </div>
+            
+            <h3 class="statistics-heading">Timeline statistics</h3>
+            <div id="timeline-statics">
+                <!-- Top timeline is absed on rating of a timeline by students -->
+                <div id="top-timelines">
+                    <h4>Top Rated Timelines</h4>
+                    <% for(let i=0;i<user.timeline.length;i++) { %> 
+                        <div class="one-timeline-ratings">
+                            <p><%= i+1 %></p>
+                            <p><%= user.timeline[i].name %></p>
+                            <p class="star"><%= user.timeline[i].rating %><span              class="material-icons star">star_rate</span></p>
+                        </div>
+                    <% } %>
+                </div>
+                <!-- Timeline donought chart is absed on subscribers of a timeline -->
+                <div id="timeline-graph">
+                    <canvas id="myTimelineChart"></canvas>
+                </div>
+            </div>
+            <h3 class="statistics-heading">Student statistics</h3>
+            <div id="student-statics">
+                <!-- Top performer is based on MAX number of badges by a student in all the time period -->
+                <div id="top-performer" class="student-performer">
+                    <h4 class="performer-heading">Top Performer</h4>
+                    <% student.sort(function(a, b){return -(a.badgeId.length - b.badgeId.length)}); %>
+                    <% for(let i=0;i<student.length;i++){ %>
+                        <div class="one-line-performer">
+                            <span><%= i+1 %>.</span>
+                            <img src="/images/profile.jpg" alt="profile">
+                            <p><%= student[i].name %></p>
+                            <span class="material-icons top-badge">military_tech</span>
+                            <span><%= student[i].badgeId.length %></span>
+                        </div>
+                    <% } %>
+                </div>
+                <!-- Fastest performer is based on MAX number of badges in MINIMUM amount of time.  -->
+                <div id="fastest-performer" class="student-performer">
+                    <h4 class="performer-heading">Fastest Learner</h4>
+                    <% student.sort(function(a, b){return -(a.badgeId.length/(new Date(a.createdAt).getSeconds())-(b.badgeId.length/(new Date(b.createdAt).getSeconds())))}); %>
+                    <% for(let i=0;i<student.length;i++){ %>
+                        <div class="one-line-performer">
+                            <span><%= i+1 %>.</span>
+                            <img src="/images/profile.jpg" alt="profile">
+                            <p><%= student[i].name %></p>
+                            <span class="material-icons top-badge">military_tech</span>
+                            <span><%= student[i].badgeId.length %></span>
+                        </div>
+                    <% } %>
+                </div>
+                <!-- Inactive students are based on last badge won by a student -->
+                <div id="inactive-students" class="student-performer">
+                    <h4 class="performer-heading">Inactive Students</h4>
+                    <% for(let i=0;i<user.students.length ;i++){ %>
+                        <div class="one-line-performer">
+                            <span><%= i+1 %>.</span>
+                            <img src="/images/profile.jpg" alt="profile">
+                            <p><%= user.students[i].name %></p>
+                            <span class="last-online"><%= user.students[i].lastBadge %></span>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>
-        
-        <h3 class="statistics-heading">Timeline statistics</h3>
-        <div id="timeline-statics">
-            <!-- Top timeline is absed on rating of a timeline by students -->
-            <div id="top-timelines">
-                <h4>Top Rated Timelines</h4>
-                <% for(let i=0;i<user.timeline.length;i++) { %> 
-                    <div class="one-timeline-ratings">
-                        <p><%= i+1 %></p>
-                        <p><%= user.timeline[i].name %></p>
-                        <p class="star"><%= user.timeline[i].rating %><span              class="material-icons star">star_rate</span></p>
-                    </div>
-                <% } %>
-            </div>
-            <!-- Timeline donought chart is absed on subscribers of a timeline -->
-            <div id="timeline-graph">
-                <canvas id="myTimelineChart"></canvas>
-            </div>
+    <% }else{ %> 
+        <div id="temp-div">
+            <strong>Please start giving badges to students to see statics data</strong>
         </div>
-        <h3 class="statistics-heading">Student statistics</h3>
-        <div id="student-statics">
-            <!-- Top performer is based on MAX number of badges by a student in all the time period -->
-            <div id="top-performer" class="student-performer">
-                <h4 class="performer-heading">Top Performer</h4>
-                <% student.sort(function(a, b){return -(a.badgeId.length - b.badgeId.length)}); %>
-                <% for(let i=0;i<student.length;i++){ %>
-                    <div class="one-line-performer">
-                        <span><%= i+1 %>.</span>
-                        <img src="/images/profile.jpg" alt="profile">
-                        <p><%= student[i].name %></p>
-                        <span class="material-icons top-badge">military_tech</span>
-                        <span><%= student[i].badgeId.length %></span>
-                    </div>
-                <% } %>
-            </div>
-            <!-- Fastest performer is based on MAX number of badges in MINIMUM amount of time.  -->
-            <div id="fastest-performer" class="student-performer">
-                <h4 class="performer-heading">Fastest Learner</h4>
-                <% student.sort(function(a, b){return -(a.badgeId.length/(new Date(a.createdAt).getSeconds())-(b.badgeId.length/(new Date(b.createdAt).getSeconds())))}); %>
-                <% for(let i=0;i<student.length;i++){ %>
-                    <div class="one-line-performer">
-                        <span><%= i+1 %>.</span>
-                        <img src="/images/profile.jpg" alt="profile">
-                        <p><%= student[i].name %></p>
-                        <span class="material-icons top-badge">military_tech</span>
-                        <span><%= student[i].badgeId.length %></span>
-                    </div>
-                <% } %>
-            </div>
-            <!-- Inactive students are based on last badge won by a student -->
-            <div id="inactive-students" class="student-performer">
-                <h4 class="performer-heading">Inactive Students</h4>
-                <% for(let i=0;i<user.students.length ;i++){ %>
-                    <div class="one-line-performer">
-                        <span><%= i+1 %>.</span>
-                        <img src="/images/profile.jpg" alt="profile">
-                        <p><%= user.students[i].name %></p>
-                        <span class="last-online"><%= user.students[i].lastBadge %></span>
-                    </div>
-                <% } %>
-            </div>
-        </div>
-    </div>
+    <% } %>
+    
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
