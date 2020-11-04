@@ -4,7 +4,7 @@ const cloudinary = require('cloudinary');
 const { update } = require('../../models/user');
 
 let name = "Lovekesh";
-let clientLogo = '../../../assets/images/client-logo.jpg' ;
+let clientLogo = 'https://res.cloudinary.com/lovekesh9896/image/upload/v1604510459/oyfdl4e45fxujwfwo7of.jpg' ;
 let clientName = "Coding Ninjas";
 
 cloudinary.config({
