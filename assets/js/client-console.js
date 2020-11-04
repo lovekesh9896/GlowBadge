@@ -101,6 +101,8 @@ $(document).ready(async () => {
       }).show();
       },
       error: function (err) {
+        $("#upload-asset-button").css('background-color', 'navy');
+        $("#upload-asset-button").text('Save Changes');
         new Noty({
           text: 'Error in Uploading filesystem',
           type: 'error', 
@@ -114,7 +116,7 @@ $(document).ready(async () => {
 //  ////////////////////////////// Direct Share  ////////////////////////////
   $("#direct-share-button").click(function (event) {
     $(this).css('background-color', 'green');
-    $(this).html('<i class="fa fa-circle-o-notch fa-spin loading-hidden"></i> Uploading');
+    $(this).html('<i class="fa fa-circle-o-notch fa-spin loading-hidden"></i> Sending...');
     event.preventDefault();
     var emails = $("#email-entries").val();
     var criteria = $("#criteria").val();
@@ -138,6 +140,8 @@ $(document).ready(async () => {
           }).show();
         },
         error: function (err) {
+          $("#direct-share-button").css('background-color', 'navy');
+          $("#direct-share-button").text('Send');
           new Noty({
               text: 'Internal Server Error',
               type: 'error', 

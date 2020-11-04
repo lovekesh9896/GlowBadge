@@ -65,6 +65,8 @@ $("#submit-timeline").on("click", function (e) {
     },
     error: function (err) {
       console.log(err);
+      $("#submit-timeline").css('background-color', 'navy');
+      $("#submit-timeline").text('Send');
       new Noty({
           text: 'Error in craeting timeline',
           type: 'error', 

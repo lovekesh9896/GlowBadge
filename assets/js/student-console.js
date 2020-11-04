@@ -52,6 +52,8 @@ $('#download-cirtificate').on('click', function(e){
             }
         },
         error : function(err){
+            $('#download-cirtificate').css('background-color', 'navy');
+            $('#download-cirtificate').html('Download');
             new Noty({
                 text: 'Error in generating Cirtificate!',
                 type: 'error', 
