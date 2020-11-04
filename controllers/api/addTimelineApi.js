@@ -1,7 +1,7 @@
 const Badge = require('../../models/badges');
 const Timeline = require('../../models/timeline');
 const User = require('../../models/user');
-
+//  This function picks a timeline and change all the badges to there respective url
 let updateTimelineWithUrl = async function(timeline){
     let stringToSearch = 'class="tf-nc">';
     let indexOfFoundString = timeline.indexOf(stringToSearch);
@@ -22,7 +22,9 @@ let updateTimelineWithUrl = async function(timeline){
     }
     return timeline;
 }
-
+// This function check if a timeline with req.body.tmielineName exist
+// if yes it will update it
+// lese create a new one with that name 
 module.exports.addTimeline = async function(req,res){
     
     try {
@@ -60,6 +62,7 @@ module.exports.addTimeline = async function(req,res){
             }
         }
     } catch (err) {
+        console.log("controllers > api > addTimlineApi", err);
         return res.status(400).json({
             success : false,
             error : err,

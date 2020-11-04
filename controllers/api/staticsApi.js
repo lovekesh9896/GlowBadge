@@ -1,6 +1,6 @@
 const User = require('../../models/user');
 const Timeline = require('../../models/timeline');
-
+//   Hnadles the badge Ststics 
 module.exports.badgeStatics = async function (req,res) {
     try {
         let user = await User.findById(req.user._id);
@@ -17,6 +17,7 @@ module.exports.badgeStatics = async function (req,res) {
             statics : statics
         });
     } catch (err) {
+        console.log("controller > api > staticsApi.js > badgeStatics", err);
         return res.status(200).json({
             message : 'Internal server error',
             success : false
@@ -40,7 +41,7 @@ module.exports.timelineSubs = async function (req,res) {
             statics : user.timeline
         });
     } catch (err) {
-        console.log(err);
+        console.log("controller > api > staticsApi.js > timelineStstsics", err);
         return res.status(200).json({
             message : 'Internal server error',
             success : false

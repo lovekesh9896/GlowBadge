@@ -34,7 +34,7 @@ module.exports.verify = async function(req,res){
             title : 'Verified'
         })
     } catch (err) {
-        console.log(err);
+        console.log("Controllers > home_controllers > verify", err);
         return res.render('verify', {
             error : "This badge can not be verified",
             title : 'Not Verified'

@@ -52,21 +52,15 @@ $('#download-cirtificate').on('click', function(e){
             }
         },
         error : function(err){
+            new Noty({
+                text: 'Error in generating Cirtificate!',
+                type: 'error', 
+                theme: "relax", 
+                timeout: "1500"
+            }).show();
             console.log(err);
         }
     })
 });
 
-
-//////////////// notification test //////////////////////
-
-
-$('#notification').on('click', function(e){
-     new Noty({
-        text: 'Post created succesfully',
-        type: 'success', 
-        theme: "relax", 
-        timeout: "1500"
-    }).show();
-})
 

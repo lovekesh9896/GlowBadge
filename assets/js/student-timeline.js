@@ -1,3 +1,4 @@
+// //////////// Toogle for timelines
 let switchButtons = document.getElementsByClassName('switch-button');
 for(let i=0;i<switchButtons.length;i++){
     $(switchButtons[i]).on('click', function(e){
@@ -42,6 +43,12 @@ $('.subscribe-button').on('click', function(e){
             $(e.target).attr('disabled','true');
         },
         erorr : function(err){
+            new Noty({
+                text: 'Error in Subscribing!',
+                type: 'error', 
+                theme: "relax", 
+                timeout: "1500"
+            }).show();
             console.log(err);
         }
     })

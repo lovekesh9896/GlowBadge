@@ -11,9 +11,7 @@ const studentSchema = new mongoose.Schema({
     },
     name: {
         type: String,
-        default: function() {
-            return 'GolowBadge' + Math.floor(Math.random()*100)
-            }
+        default: "Student"
     },
     badgeId : [
         {

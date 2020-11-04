@@ -4,7 +4,7 @@ const passport = require("passport");
 const Student = require("../models/student");
 const studentController = require("../controllers/students_controller");
 const bcrypt = require("bcrypt");
-
+//  We are creating our own local authentication 
 router.get(
   "/profile",
   function (req, res, next) {

@@ -9,7 +9,7 @@ module.exports.profile = function (req, res) {
 // render the sign up page
 module.exports.signUp = function (req, res) {
     if (req.isAuthenticated()) {
-        return res.redirect("/students/profile");
+        return res.redirect("/students/console");
     }
     return res.render("student_sign_up", {
         title: "GlowBadge | Sign Up",
@@ -19,7 +19,7 @@ module.exports.signUp = function (req, res) {
 // render the sign in page
 module.exports.signIn = function (req, res) {
     if (req.isAuthenticated()) {
-        return res.redirect("/students/profile");
+        return res.redirect("/students/console");
     }
     return res.render("student_sign_in", {
         title: "GlowBadge | Sign In",
@@ -48,7 +48,7 @@ module.exports.create = async function (req, res) {
             return res.redirect("/students/sign-in");
         }
     } catch (err) {
-        console.log(err);
+        console.log("Controllers > students_controllers > create", err);
         return res.redirect("back");
     }
 };

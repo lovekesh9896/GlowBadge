@@ -11,7 +11,7 @@ module.exports.profile = function (req, res) {
 // render the sign up page
 module.exports.signUp = function (req, res) {
   if (req.isAuthenticated()) {
-    return res.redirect("/clients/profile");
+    return res.redirect("/clients/console");
   }
   return res.render("client_sign_up", {
     title: "GlowBadge | Sign Up",
@@ -21,7 +21,7 @@ module.exports.signUp = function (req, res) {
 // render the sign in page
 module.exports.signIn = function (req, res) {
   if (req.isAuthenticated()) {
-    return res.redirect("/clients/profile");
+    return res.redirect("/clients/console");
   }
   return res.render("client_sign_in", {
     title: "GlowBadge | Sign In",
@@ -44,7 +44,7 @@ module.exports.create = async function (req, res) {
       return res.redirect("/clients/sign-in");
     }
   } catch (err) {
-    console.log(err);
+    console.log("Controllers > clients_controllers > create", err);
     return res.redirect("back");
   }
 };

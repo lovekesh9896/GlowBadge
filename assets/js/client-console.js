@@ -1,3 +1,4 @@
+// //////////// Get fileSystem form the server
 let getTheFileSystem = function () {
   $.ajax({
     type: "GET",
@@ -7,12 +8,18 @@ let getTheFileSystem = function () {
       return fileSystem;
     },
     error: function (err) {
+       new Noty({
+          text: 'Error in Loading filesystem',
+          type: 'error', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
       console.log(err);
     },
   });
 };
 
-
+// /////////// Initialize the file explorer
 let currBadge;
 $(document).ready(async () => {
   fileSystem = getTheFileSystem();
@@ -54,11 +61,12 @@ $(document).ready(async () => {
       },
       onToolbarItemClick: function (e) {
         $("#upload-asset-button").prop("disabled", false);
+        $("#upload-asset-button").css('background-color', 'navy');
       },
       allowedFileExtensions: [".png", ".jpg", "jpeg", "wepg"],
     });
   }, 1000);
-
+// ///////// POP up on badge select
   $("#photo-popup").dxPopup({
     maxHeight: 600,
     closeOnOutsideClick: true,
@@ -85,8 +93,20 @@ $(document).ready(async () => {
         $("#upload-asset-button").prop("disabled", true);
         $("#upload-asset-button").css('background-color', 'lightgrey');
         $("#upload-asset-button").text('Save Changes');
+        new Noty({
+          text: 'File System Updated Successfully',
+          type: 'error', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
       },
       error: function (err) {
+        new Noty({
+          text: 'Error in Uploading filesystem',
+          type: 'error', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
         console.log(err);
       },
     });
@@ -110,12 +130,30 @@ $(document).ready(async () => {
         success: function (resposnse) {
           $("#direct-share-button").css('background-color', 'navy');
           $("#direct-share-button").text('Send');
+          new Noty({
+              text: 'Badge Shared Successfuly',
+              type: 'success', 
+              theme: "relax", 
+              timeout: "1500"
+          }).show();
         },
         error: function (err) {
+          new Noty({
+              text: 'Internal Server Error',
+              type: 'error', 
+              theme: "relax", 
+              timeout: "1500"
+          }).show();
           console.log(err);
         },
       });
     } else {
+      new Noty({
+          text: 'Please select a badge from filesystem',
+          type: 'error', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
       console.log("Please select a badge and press save changes");
     }
   });

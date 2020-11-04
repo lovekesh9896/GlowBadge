@@ -12,7 +12,7 @@ const MongoStore = require("connect-mongo")(session);
 
 // req sixe in fileSystemApi is larger because all the badges
 app.use(express.json({ limit: "50mb" }));
-// app.use(express.urlencoded({ limit: "50mb" })); // remove this
+app.use(express.urlencoded()); // remove this
 
 app.use(cookieParser());
 

@@ -3,12 +3,15 @@ const Badge = require('../../models/badges');
 
 const cloudinary = require('cloudinary').v2;
 
-cloudinary.config({
+cloudinary.config({ // Shoudl be kept in process.env
     cloud_name : 'lovekesh9896',
     api_key : '227636549261121',
     api_secret : 'jG5cJhufoxCQNGd7-Uc8aShrGos'
 });
-
+// This funciton takes the fileSystem (JavaScript Object not JSON)
+// Find all the bagdes and then upload them cloudinary 
+// and update the content with badge url from cloudinary
+// earlier badge is in Base 64 URI
 let findbase64AndUpload = async function(fileSystem ,user){
     for(let i=0;i<fileSystem.length;i++){
         let a = fileSystem[i];
@@ -67,7 +70,7 @@ module.exports.updateFileSystem = async function(req,res){
             })
         }
     } catch (err) {
-        console.log(err);
+        console.log("Controllers > api > fileSystemapi", err);
         if(req.xhr){
             return res.status(200).json({
                 message : "error"

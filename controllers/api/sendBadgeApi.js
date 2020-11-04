@@ -1,21 +1,23 @@
 const User = require('../../models/user');
 const Badge = require('../../models/badges');
 const Student = require('../../models/student');
-
+// This funciton takes the clientId, clientSecret, badgeName and student email
+// find that user(client), checks for auth and then update the syudent db for 
+// that badge 
 module.exports.sendBadge = async function(req,res){
     
     try {
         let clientId = req.body.ClientId;
         let clientSecret = req.body.ClientSecret;
         let user = await User.findOne({clientId : clientId});
-        if(user){
-            if(user.clientSecret === clientSecret){
+        if(user){ // user found
+            if(user.clientSecret === clientSecret){ // user authenticated
                 var path = req.body.Path;
                 let name = path.slice(path.lastIndexOf('/')+1);
                 let badge = await Badge.findOne({name : name});
-                if(badge && badge.user === user.clientId){
+                if(badge && badge.user === user.clientId){ // badge found
                     let student = await Student.findOne({email : req.body.email});
-                    if(student){
+                    if(student){ // student exist
                         student.lastBadge = new Date();
                         await student.badgeId.push(badge);
                         await student.clients.addToSet(user);
@@ -34,7 +36,7 @@ module.exports.sendBadge = async function(req,res){
 
                         badge.timesUsed = badge.timesUsed + 1;
                         await badge.save();
-                    }else{
+                    }else{ // create new student
                         let newStudent = await Student.create({
                             email: req.body.email,
                         });
@@ -62,7 +64,7 @@ module.exports.sendBadge = async function(req,res){
                         message : 'Badge Found and sent',
                         badge : badge
                     })
-                }else{
+                }else{ // the badge does not belongs to that user
                     return res.status(404).json({
                         success : false,
                         message : 'badge not found or wrong request',
@@ -70,7 +72,7 @@ module.exports.sendBadge = async function(req,res){
                 }
                 
             }
-        }else{
+        }else{ // user not found
             if(req.xhr){
                 return res.status(404).json({
                     success : false,
@@ -79,11 +81,11 @@ module.exports.sendBadge = async function(req,res){
             }
         }
     } catch (err) {
-        console.log(err);
+        console.log("Controller > api > sendBadgeApi", err);
         if(req.xhr){
             return res.status(404).json({
                 success : false,
-                message : 'User not found'
+                message : 'Internal server error'
             })
         }
     }

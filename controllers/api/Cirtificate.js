@@ -13,7 +13,8 @@ cloudinary.config({
     api_secret : 'jG5cJhufoxCQNGd7-Uc8aShrGos'
 });
 
-
+//  This function takes the cirtificate the timeline template
+// badge url and badgeQR and puts them on top of each other
 let createCirtificate = async function(badgeURL, badgeQr){
     try {
         let bottom = await Jimp.read(__dirname + '../../../assets/images/cirtificate.png');
@@ -34,45 +35,22 @@ let createCirtificate = async function(badgeURL, badgeQr){
         let upload = await cloudinary.uploader.upload('./final.png');
         return upload;
     } catch (err) {
-        console.log("error from line 36", err);
+        console.log("controllers > api > Cirtificate.js", err);
         return {error : "error"}
     }
-    
-    // .then(bottom => {
-        
-    //         .then(top1 => {
-                
-    //                 .then(badge => {
-                        
-    //                         .then(qr => {
-                                
-    //                                 .then(font => {
-                                        
-                                        
-                                        
-                                        
-                                        
-    //                                 });
-    //                         })
-    //                 })
-    //         })
-    // })
-    // .catch(err => {
-        
-    // });
 }
 
 module.exports.cirtificate = async function(req, res){
     try {
         let badgeUrl = req.body.badgeUrl;
         let badgeQr = req.body.badgeQr;
-        let a = await createCirtificate(badgeUrl, badgeQr);
+        let upload = await createCirtificate(badgeUrl, badgeQr);
         return res.status(200).json({
             success : true,
-            data : a
+            data : upload
         })
     } catch (err) {
-        console.log(err);
+        console.log("controllers > api > Cirtificate.js", err);
         return res.status(200).json({
             success : false,
             message : "Interval server error"

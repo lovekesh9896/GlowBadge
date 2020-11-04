@@ -3,7 +3,6 @@ const nodeMailer = require("../config/nodemailer");
 
 // this is another way of exporting method
 exports.newBadge = async (email, badge, info) => {
-    console.log("inside new badge mailer");
     try {
         let htmlString = nodeMailer.renderTemplate(
             { badge: badge, info: info },
@@ -15,8 +14,8 @@ exports.newBadge = async (email, badge, info) => {
             subject: "New badge earned",
             html: htmlString,
         });
-        console.log(a);
+        console.log("Email sent successfully");
     } catch (err) {
-        console.log(err);
+        console.log("mailers > badeg_mailers.js", err);
     }
 };

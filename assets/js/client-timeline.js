@@ -56,9 +56,21 @@ $("#submit-timeline").on("click", function (e) {
       $("#submit-timeline").text('Send');
       $("#backdrop").fadeOut();
       $("#create-timeline").fadeOut();
+      new Noty({
+          text: 'Timeline Created successfully',
+          type: 'success', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
     },
     error: function (err) {
       console.log(err);
+      new Noty({
+          text: 'Error in craeting timeline',
+          type: 'error', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
     },
   });
 });

@@ -1,7 +1,9 @@
 const { request } = require('express');
 const Student = require('../../models/student');
 const Timeline = require('../../models//timeline');
-
+//  This funcitons takes the timeline id
+// Chekc if the student exist and then add that timeline Id
+//  to stduent db and saves it
 module.exports.subscribe = async function(req,res){ 
     try {
         let student = await Student.findById(req.body.studentId);
@@ -29,7 +31,7 @@ module.exports.subscribe = async function(req,res){
             }
         }
     } catch (err) {
-        console.log(err);
+        console.log("Controllers > api > subscribeTimelein.js", err);
         return res.status(200).json({
             message : 'Internal server error',
             success : false

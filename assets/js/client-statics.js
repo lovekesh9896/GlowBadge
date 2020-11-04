@@ -1,3 +1,4 @@
+// /////////////// Create the bar graph
 const makeTheBadgeGraph = function(data){
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -12,17 +13,9 @@ const makeTheBadgeGraph = function(data){
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                    }
-                }]
-            }
-        }
     });
 }
-
+// ///////////// Get the badge statics for Donought graph
 $.ajax({
     type : 'GET',
     url : '/api/badge-statics',
@@ -32,9 +25,15 @@ $.ajax({
     },
     error : function(err){
         console.log(err);
+        new Noty({
+          text: 'Error in Loading Badge Distribution Graph',
+          type: 'error', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
     }
 });
-
+// /////////// Create the timeline bar graoh
 const makeTheTimelineGraph = function(data){
     let name = [];
     let number = [];
@@ -62,7 +61,7 @@ const makeTheTimelineGraph = function(data){
         }
     });
 }
-
+// /////////// Grt the timeline statics for Donought graph
 $.ajax({
     type : 'Get',
     url : '/api/timeline-statics',
@@ -72,6 +71,12 @@ $.ajax({
     },
     error : function(err) {
         console.log(err);
+        new Noty({
+          text: 'Error in creating Timeline Graph',
+          type: 'error', 
+          theme: "relax", 
+          timeout: "1500"
+      }).show();
     }
 })
 
