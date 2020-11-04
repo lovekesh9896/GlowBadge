@@ -26,7 +26,7 @@ module.exports.directShare = async function (req, res) {
                         await student.save();
                         
                         let lastNumber;
-                        if(user.badgeStatics){
+                        if(user.badgeStatics.length > 0){
                             lastNumber = user.badgeStatics.pop();
                         }else{
                             lastNumber = 0;
@@ -50,7 +50,7 @@ module.exports.directShare = async function (req, res) {
                         await newStudent.save();
                         
                         let lastNumber;
-                        if(user.badgeStatics){
+                        if(user.badgeStatics.length > 0){
                             lastNumber = user.badgeStatics.pop();
                         }else{
                             lastNumber = 0;
