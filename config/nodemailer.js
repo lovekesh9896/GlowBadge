@@ -9,7 +9,7 @@ smtp = {
     secure : false,
     auth : {
         user : "kumarmehlan@gmail.com",
-        pass : "loki@nanu",
+        pass : "*******",
     }
 }
 
