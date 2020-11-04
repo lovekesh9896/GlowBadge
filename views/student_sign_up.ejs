@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/sign-in.css" />
+
+<div id="back-div">
+  <div id="main-div">
+    <div id="left-section">
+      <a href="/"> <img src="/images/signup.png" alt="random" /></a>
+    </div>
+    <div id="right-section">
+      <p>Student Sign Up</p>
+      <form action="/students/create" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          name="confirm_password"
+          placeholder="Confirm Password"
+          required
+        />
+        <button type="submit">Create account</button>
+      </form>
+      <p class="small-text-grey">
+        <a href="/students/sign-in">Sing in instead</a>
+      </p>
+      <p class="small-text-grey">
+        <a href="/clients/sign-up" style="text-decoration: underline"
+          >Sign up as client ?</a
+        >
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.centered-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+#secure-badge{
+    color: green;
+    font-size: larger;
+}
+
+#secure-badge span{
+    font-weight: bold;
+}
+
+#badge-name{
+    font-size: larger;
+}
+
+#student-name{
+    font-size:x-large;
+    text-transform: capitalize;
+}
+
+#client-name{
+    text-transform: capitalize;
+}

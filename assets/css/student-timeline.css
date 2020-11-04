@@ -1,0 +1,421 @@
+#wrapper-div {
+    display: flex;
+    font-family: sans-serif;
+}
+#left {
+    width: 75vw;
+}
+#right {
+    width: 25vw;
+    box-sizing: border-box;
+}
+#top-bar-left-section {
+    width: 100%;
+    background-color: #ecf1fb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 45px;
+    box-sizing: border-box;
+}
+
+#website-logo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: rgb(75, 87, 143);
+}
+
+#website-logo a {
+    color: rgb(75, 87, 143);
+    text-decoration: none;
+}
+
+#website-logo img {
+    margin-right: 25px;
+}
+
+#website-links {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    align-items: center;
+}
+
+#website-links input {
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 4px 0px grey;
+    width: 35%;
+    padding-left: 2%;
+}
+
+#top-bar-rigth-section {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 35px;
+    background-color: #ecf1fb;
+}
+
+#profile-image img {
+    width: 45px;
+    height: 45px;
+    border-radius: 25px;
+}
+
+#user-info {
+    margin: 0 15px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: grey;
+}
+
+#user-info p {
+    margin: 0;
+    padding-left: 0;
+}
+
+#drop-down {
+    position: relative;
+}
+
+#drop-down-hidden {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    top: 25px;
+    right: -30px;
+    width: max-content;
+    border: 1px solid lightgrey;
+    padding: 2px 12px;
+    /* text-decoration: none; */
+    box-shadow: 0 0 2px lightgrey;
+    border-radius: 8px;
+    display: none;
+}
+
+#drop-down:hover #drop-down-hidden {
+    display: initial;
+}
+
+#drop-down-hidden a {
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.active {
+    color: #5c5ce0;
+    border-bottom: 2px solid;
+}
+
+/* ////////////////////////////////// switch ///////////////////////////////////// */
+#toogle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#switches{
+    border: 1px solid;
+    padding: 5px 15px;
+    background-color: #4b578f ;
+    border-radius: 20px;
+    border-color: #4b578f ;
+}
+
+.switch-button{
+    width: 100px;
+    height: 30px;
+    background-color: #4b578f ;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 20px;
+}
+
+.active-switch{
+    background: white;
+    color: black;
+}
+
+/* ////////////////////////////////// Subscribed /////////////////////////////////// */
+.no-show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(150, 134, 114);
+    height: 70vh;
+    font-weight: bold;
+}
+#badges{
+    display: none;
+}
+
+
+#all-timelines{
+    padding: 10px 50px;
+    font-family: sans-serif;
+    display: none;
+}
+
+#subscribed{
+    padding: 10px 50px;
+    font-family: sans-serif;
+}
+.each-timeline{
+    width: 100%;
+    box-shadow: 0 0 1px 2px lightgrey;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.timlien-details{
+    width: 100%;
+    display: flex;
+    padding: 3px 50px;
+    box-sizing: border-box;
+    height: 96px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.client-logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.name-and-timeline{
+    width: 40%;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.progress-bar{
+    width: 97%;
+    height: 10px;
+    border-radius: 20px;
+    margin-bottom: 3px;
+    border: 1px solid lightgrey;
+    position: relative;
+}
+
+.timeline-name{
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: larger;
+    text-transform: capitalize;
+}
+
+.progress{
+    width: 80%;
+    height: 120%;
+    border-radius: 20px;
+    background-color: rgb(130,255,165);
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+
+.percentage{
+    font-size: small;
+}
+
+.start-time-and-badges{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.timeline-date{
+    background-color: rgb(255,155,155);
+    color: white;
+    border-radius: 10px;
+}
+
+.timeline-badges{
+    background-color: rgb(26,213,182);
+    color: white;
+    border-radius: 10px;
+}
+
+.start-time-and-badges button{
+    width: 40%;
+    height: 65px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    outline: none;
+}
+
+.timeline-drop-down{
+    width: 50px;
+    height: 50px;
+    background-color: royalblue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.timeline-drop-down span{
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+}
+
+/* ////////////////all timelines //////////////////////////// */
+.one-client-timeline{
+   width: 100%;
+}
+
+.one-client-timeline h2{
+    text-transform: capitalize;
+}
+
+.one-client-timeline img{
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.client-info{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.card{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 2px 3px lightgrey;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.hidden-span{
+    display: none;
+}
+
+.card-heading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.card-heading p{
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.card img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.card button{
+    width: 150px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: #4545bd;
+    color: white;
+    border-radius: 10px;
+}
+
+/* /////////////////////timeline tree code/////////////////////// */
+.subscribed-timeline{
+    display: none;
+    padding: 0 45px 20px 45px;
+}
+
+.timeline-describe a{
+    display: flex;
+    align-items: center;
+    background-color: royalblue;
+    padding: 3px 5px;
+    justify-content: center;
+    width: 165px;
+    height: 35px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.timeline-describe{
+    width: 30%;
+    border-right: 1px solid #ccc;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.tf-tree {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: scroll;
+  }
+  
+  .tf-nc {
+    position: relative;
+    border-radius: 50%;
+  }
+  
+  .tf-nc input {
+    position: absolute;
+    display: none;
+    transform: translateX(-75%);
+    width: 100%;
+    top: 25px;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  #main-container input {
+    display: none;
+  }
+  
+  /* ---------------------------------------test remove it afterwards ---------------*/
+  .tf-nc img {
+    width: 40px;
+    height: 40px;
+    filter: grayscale(100%);
+  }

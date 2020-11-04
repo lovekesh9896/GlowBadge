@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="/css/client-console.css" />
+<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.1.8/css/dx.common.css">
+<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.1.8/css/dx.light.css">
+        
+
+<div id="wrapper-div">
+  <div id="left">
+    <div id="top-bar-left-section">
+      <div id="website-logo">
+        <a href="/"><img src="/images/website-icon.svg" alt="" /></a>
+        <a href="/"><p>GlowBadge</p></a>
+      </div>
+      <div id="website-links">
+        <a href="/clients/console" class="links active">Console</a>
+        <a href="/clients/timeline" class="links">Timeline</a>
+        <a href="/clients/statics" class="links">Statics</a>
+        <input type="text" placeholder="Search" />
+      </div>
+    </div>
+    <!--  File Manager -->
+    <div id="workspace">
+      <div class="full-width-text">Workspace</div>
+      <div id="file-manager"></div>
+      <div id="photo-popup"></div>
+      <button id="upload-asset-button">Save Changes</button>
+    </div>
+  </div>
+  <div id="right">
+    <div id="top-bar-rigth-section">
+      <div id="profile-image">
+        <img src="/images/profile.jpg" alt="" />
+      </div>
+      <div id="user-info">
+        <p style="font-weight: bold">Lovekesh</p>
+        <p>Administator</p>
+      </div>
+      <div id="drop-down">
+        <span class="material-icons"> keyboard_arrow_down </span>
+        <div id="drop-down-hidden">
+          <a href="/clients/sign-out">Log out</a>
+        </div>
+      </div>
+    </div>
+    <div id="sample-api-call">
+      <div class="full-width-text">Sample API call</div>
+      <p class="call-space-2">type : "POST",</p>
+      <p class="call-space-2">url : '/request-badge',</p>
+      <p class="call-space-2">data : {</p>
+      <p class="call-space-3">ClientId : Your ID</p>
+      <p class="call-space-3">ClientSecret : Your Secret</p>
+      <p class="call-space-3" id="url-update">Path : Image Path</p>
+      <p class="call-space-3">studentEmail : Student Email</p>
+      <p class="call-space-2">}</p>
+      <p class="call-space-2">success : function(data){</p>
+      <p class="call-space-3">// You will recieve an image...</p>
+      <p class="call-space-2">},</p>
+      <p class="call-space-2">error : function(err){</p>
+      <p class="call-space-3">// if error is shown</p>
+      <p class="call-space-2">}</p>
+    </div>
+    <!-- Direct Share -->
+    <div id="direct-share">
+      <div class="full-width-text">Direct Share</div>
+      <form method="post">
+        <input
+          placeholder="Enter Emails seperated by comma (,)"
+          name="emails"
+          id="email-entries"
+          type="email"
+          multiple
+          required
+        />
+        <textarea
+          type="text"
+          name="message"
+          placeholder="enter message"
+        ></textarea>
+        <input
+          type="text"
+          name="criteria"
+          placeholder="Enter the criteria for this badge"
+          id="criteria"
+          required
+        />
+        <button id="direct-share-button">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/js/client-console.js"></script>

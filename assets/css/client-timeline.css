@@ -1,0 +1,301 @@
+#wrapper-div {
+  display: flex;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+}
+#left {
+  width: 75vw;
+}
+#right {
+  width: 25vw;
+  box-sizing: border-box;
+}
+#top-bar-left-section {
+  width: 100%;
+  background-color: #ecf1fb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 45px;
+  box-sizing: border-box;
+}
+
+#website-logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: rgb(75, 87, 143);
+}
+
+#website-logo a {
+  color: rgb(75, 87, 143);
+  text-decoration: none;
+}
+
+#website-logo img {
+  margin-right: 25px;
+}
+
+#website-links {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
+}
+
+#website-links input {
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 4px 0px grey;
+  width: 35%;
+  padding-left: 2%;
+}
+
+#top-bar-rigth-section {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 35px;
+  background-color: #ecf1fb;
+}
+
+#profile-image img {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+}
+
+#user-info {
+  margin: 0 15px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: grey;
+}
+
+#user-info p {
+  margin: 0;
+  padding-left: 0;
+}
+
+#drop-down {
+  position: relative;
+}
+
+#drop-down-hidden {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  top: 25px;
+  right: -30px;
+  width: max-content;
+  border: 1px solid lightgrey;
+  padding: 2px 12px;
+  /* text-decoration: none; */
+  box-shadow: 0 0 2px lightgrey;
+  border-radius: 8px;
+  display: none;
+}
+
+#drop-down:hover #drop-down-hidden {
+  display: initial;
+}
+
+#drop-down-hidden a {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+
+.links {
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.active {
+  color: #5c5ce0;
+  border-bottom: 2px solid;
+}
+
+#wrapper-div-sections {
+  display: flex;
+  font-family: sans-serif;
+}
+
+#left-section {
+  width: 30vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#right-section {
+  width: 70vw;
+  box-sizing: border-box;
+}
+
+#backdrop {
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: none;
+}
+
+#create-timeline {
+  width: 80vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 15;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#left-section img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#input-name {
+  width: 70%;
+  border: none;
+  border-bottom: 1px solid;
+  margin-bottom: 30px;
+  margin-top: 22px;
+  padding-left: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+#left-section button {
+  border: none;
+  outline: none;
+  background-color: #3b3be0;
+  padding: 6px 16px;
+  border-radius: 7px;
+  color: white;
+  height: 30px;
+}
+
+#submit-timeline {
+  width: 200px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  height: 40px;
+  background-color: rgb(36, 173, 36);
+  color: white;
+}
+
+.tf-tree {
+  margin-top: 30px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  width: 80%;
+  overflow: scroll;
+}
+
+.tf-nc {
+  position: relative;
+  border-radius: 50%;
+}
+
+.tf-nc input {
+  position: absolute;
+  display: none;
+  transform: translateX(-75%);
+  width: 100%;
+  top: 25px;
+  z-index: 2;
+  text-align: center;
+}
+
+.tf-nc:hover input {
+  display: initial;
+}
+
+#main-container input {
+  display: none;
+}
+
+/* ---------------------------------------test remove it afterwards ---------------*/
+.tf-nc img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ------------------------main code--------------------------- */
+#main-container {
+  width: 100%;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  padding: 10px 20px;
+}
+
+#no-display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 65vh;
+  font-weight: bold;
+  background-color: antiquewhite;
+}
+
+.full-width-text {
+  width: 100%;
+  height: 40px;
+  background-color: #ecf1fb;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+
+.timeline {
+  box-shadow: 0 0 4px 0px black;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#timeline-options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 30px;
+}
+
+#timeline-options span {
+  margin-right: 20px;
+}

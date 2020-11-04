@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="/css/student-timeline.css" />
+<link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://unpkg.com/treeflex/dist/css/treeflex.css">
+
+<div id="wrapper-div">
+    <div id="left">
+        <div id="top-bar-left-section">
+            <div id="website-logo">
+                <a href="/"><img src="/images/website-icon.svg" alt="" /></a>
+                <a href="/"><p>GlowBadge</p></a>
+            </div>
+            <div id="website-links">
+                <a href="/students/console" class="links">Console</a>
+                <a href="/students/timeline" class="links active">Timeline</a>
+                <input type="text" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div id="top-bar-rigth-section">
+            <div id="profile-image">
+                <img src="/images/profile.jpg" alt="" />
+            </div>
+            <div id="user-info">
+                <p style="font-weight: bold">Lovekesh</p>
+                <p>Student</p>
+                <span id="student-id" class="hidden-span"><%= student._id %></span>
+            </div>
+            <div id="drop-down">
+                <span class="material-icons"> keyboard_arrow_down </span>
+                <div id="drop-down-hidden">
+                    <a href="/students/sign-out">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-wrapper-div">
+    <div id="toogle">
+        <div id="switches">
+            <button class="switch-button active-switch">Subscribed</button>
+            <button class="switch-button">Show All</button>
+        </div>
+    </div>
+
+    <div id="subscribed">
+        
+        <% if(student.subscribed.length > 0) { %>
+            <div class="no-show" id="badges">
+                <% for(let i=0;i<student.badgeId.length;i++) { %>
+                    <span><%= student.badgeId[i].name %> </span>
+                <% } %>
+            </div>
+            <% for(let i=0;i<student.subscribed.length;i++) { %> 
+            <div class="each-timeline">
+                <div class="timlien-details">
+                    <div class="client-logo">
+                        <img src="/images/client-logo.jpg" alt="client logo">
+                    </div>
+                    <div class="name-and-timeline">
+                        <div class="timeline-name">
+                            <span><%= student.subscribed[i].name %></span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="percentage">
+                            <span class="percentage-number">80%</span>
+                            <span>completed</span>
+                        </div>
+                    </div>
+                    <div class="start-time-and-badges">
+                        <button class="timeline-date">
+                            <span class="material-icons"> calendar_today </span>
+                            <span class="start-date"><%= student.subscribed[i].createdAt %></span>
+                        </button>
+                        <button class="timeline-badges">
+                            <span class="material-icons"> badge </span>
+                            <span class="badge-number">4/10 Badges</span>
+                        </button>
+                    </div>
+                    <div class="timeline-drop-down">
+                        <span class="material-icons">keyboard_arrow_down</span>
+                    </div>
+                </div>
+                <div class="subscribed-timeline">
+                    <div class="timeline-describe">
+                        <p>
+                            Some info about the timline provided by client will be displayed
+                            here. Here student can get general info like what this timeline contains
+                            and what to expect from this if he subscribe. This info will be provided by client.
+                        </p>
+                        <p>
+                            <span class="material-icons">grade</span>
+                            <span class="material-icons">grade</span>
+                            <span class="material-icons">grade</span>
+                            <span class="material-icons">grade</span>
+                            <span class="material-icons">grade</span>
+                        </p>
+                        <a href="/">Go To website <span class="material-icons">open_in_new</span></a>        
+                    </div>
+                    <div class="tf-tree">
+                        <%- student.subscribed[i].content %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        <% }else{ %> 
+            <div class="no-show">
+                <span>You don't have any subscribed timeline</span>
+                <span>Subscribe to a timeline from SHOW ALL toogle</span>
+            </div>
+        <% } %>
+       
+    </div>
+
+    <div id="all-timelines">
+        <% if(student.clients.length > 0) { %>
+            <% for(let i=0;i<student.clients.length;i++) { %> 
+                <div class="one-client-timeline">
+                    <div class="client-info">
+                        <img src="/images/client-logo.jpg" alt="">
+                        <h2><%= student.clients[i].name %> </h2>
+                    </div>
+                    <div class="cards">
+                        <% for(let j=0;j<student.clients[i].timeline.length;j++){ %> 
+                            <div class="card">
+                                <div class="card-heading">
+                                    <img src="/images/c++1.jpg" alt="timeline image">
+                                    <p class="all-timeline-name"> <%= student.clients[i].timeline[j].name %></p>
+                                </div>
+                                <p>
+                                    Some info about the timline provided by client will be displayed
+                                    here. Here student can get general info like what this timeline contains
+                                    and what to expect from this if he subscribe
+                                </p>
+                                <button class="subscribe-button ">subscribe <span class="hidden-span"><%= student.clients[i].timeline[j]._id %></span></button>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+        <% }else{ %>
+            <div class="no-show">
+                <span>You don't have any clients</span>
+                <span>You will see your clients created timelines when you get your first badge</span>
+            </div>
+        <% } %> 
+    </div>
+
+</div>
+<script src="/js/jquery.js"></script>
+<script src="/js/student-timeline.js"></script>

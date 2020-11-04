@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("/images/hero-image.webp");
+  background-size: cover;
+  background-position: 0 -4;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10vw 0 6vw;
+  margin-top: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#left-header {
+  display: flex;
+  align-items: center;
+}
+
+#left-header h2 {
+  font-weight: bolder;
+  margin-left: 20px;
+  color: rgb(75, 87, 143);
+}
+
+a {
+  text-decoration: none;
+  margin-left: 30px;
+  margin-bottom: 3px;
+  color: black;
+}
+
+.active {
+  text-decoration: underline;
+  color: blue;
+}
+
+.highlight {
+  background: rgb(242, 128, 128);
+  padding: 10px 17px;
+  color: white !important;
+  border-radius: 4px;
+}
+
+#helper-text {
+  width: 50vw;
+  padding: 60px 0 0 10vw;
+  font-family: "Montserrat", sans-serif;
+}
+
+#main-helper-text {
+  color: rgb(75, 87, 143);
+  font-size: 30px;
+  font-weight: bold;
+  width: 70%;
+  line-height: 2.5rem;
+}
+
+#small-helper-text {
+  color: grey;
+  width: 80%;
+  margin-bottom: 60px;
+}
+
+#helper-text a {
+  background-color: rgb(59, 130, 255);
+  color: white;
+  padding: 10px 20px;
+  margin-top: 30px;
+  border-radius: 4px;
+  margin-left: 0;
+  font-family: inherit;
+}

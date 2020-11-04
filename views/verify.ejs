@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/css/verify.css">
+<% if(error != '') { %> 
+
+    <div class="centered-div">
+        This badge Can not be verified
+    </div>
+
+<% }else{ %> 
+    <div class="centered-div">
+        <p id="secure-badge">This badge is <span>VERIFIED</span></p>
+        <img src="<%= badge.url %>" alt="<%= badge.name %>">
+        <p id="badge-name"><%= badge.name %></p>
+        <p>This badge was awarded to </p>
+        <strong id="student-name"><%= student.name %></strong>
+        <p id="client-name">by <%= badge.user.name %></p>
+    </div>
+<% } %>

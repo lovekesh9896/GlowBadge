@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="/css/student-console.css" />
+<link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+/>
+<div id="wrapper-div">
+    <div id="left">
+        <div id="top-bar-left-section">
+            <div id="website-logo">
+                <a href="/"><img src="/images/website-icon.svg" alt="" /></a>
+                <a href="/"><p>GlowBadge</p></a>
+            </div>
+            <div id="website-links">
+                <a href="/students/console" class="links active">Console</a>
+                <a href="/students/timeline" class="links">Timeline</a>
+                <input type="text" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div id="top-bar-rigth-section">
+            <div id="profile-image">
+                <img src="/images/profile.jpg" alt="" />
+            </div>
+            <div id="user-info">
+                <p style="font-weight: bold"><%= student.name %></p>
+                <span style="display: none;" id="student-id"><%= student._id %></span>
+                <p>Student</p>
+            </div>
+            <div id="drop-down">
+                <span class="material-icons"> keyboard_arrow_down </span>
+                <div id="drop-down-hidden">
+                    <a href="/students/sign-out">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button id="notification">Notification</button>
+<div id="main-warpper-div">
+    <div id="heading">
+        <select name="sort by" id="">
+            <option value="date">Date</option>
+            <option value="value">Popularity</option>
+            <option value="rare">Rare</option>
+        </select>
+        <h2>Badges Earned</h2>
+    </div>
+    <div class="grid-container">
+        <% for(let i=0;i<badges.length;i++) { %>
+            <div class="grid-item">
+                <img src=<%= badges[i].url %>>
+                <p><%= badges[i].name %></p>
+                <span class="badge-id" style="display: none;"><%= badges[i]._id %></span>
+                <div>
+                    <p>
+                        <span class="material-icons">apartment</span>
+                        <span class="client-name"><%= badges[i].user.name %></span>
+                    </p>
+                    <p>
+                        <span class="material-icons">calendar_today</span>
+                        <span class="date-created"><%= badges[i].createdAt %></span>
+                    </p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<div id="backdrop">
+    <div id="pop-up">
+        <div id="badge">
+            <img id="pop-up-img" src="https://res.cloudinary.com/lovekesh9896/image/upload/v1604119297/vardgqsrzyyhkgmhp2mg.jpg">
+            <p id="pop-up-name">c++1.jpg</p>
+            <div>
+                <p>
+                    <span class="material-icons">apartment</span>
+                    <span id="pop-up-client">Client1</span>
+                </p>
+                <p>
+                    <span class="material-icons">calendar_today</span>
+                    <span id="pop-up-date">Sat Oct 31 2020</span>
+                </p>
+            </div>
+        </div>
+        <div id="qr-code-and-cirtificate">
+            <h2>Scan to verify the badge</h2>
+            <div >
+                <img id="qr-code" src= "https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=180x180&chld=L|0"/> 
+            </div>
+            <div id="cirtificate">
+                <button id="download-cirtificate">Download Cirtificate</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.js"></script>
+
+<script src="/js/student-console.js"></script>
+<script src="/js/jquery.js"></script>

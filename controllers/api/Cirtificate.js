@@ -1,0 +1,82 @@
+const Jimp = require('jimp');
+const path = require('path');
+const cloudinary = require('cloudinary');
+const { update } = require('../../models/user');
+
+let name = "Lovekesh";
+let clientLogo = '../../../assets/images/client-logo.jpg' ;
+let clientName = "Coding Ninjas";
+
+cloudinary.config({
+    cloud_name : 'lovekesh9896',
+    api_key : '227636549261121',
+    api_secret : 'jG5cJhufoxCQNGd7-Uc8aShrGos'
+});
+
+
+let createCirtificate = async function(badgeURL, badgeQr){
+    try {
+        let bottom = await Jimp.read(__dirname + '../../../assets/images/cirtificate.png');
+        let top1 = await Jimp.read(__dirname + clientLogo);
+        let badge = await Jimp.read(badgeURL);
+        let qr = await Jimp.read(badgeQr);
+        let font = await Jimp.loadFont(Jimp.FONT_SANS_128_BLACK);
+        await bottom.print(font,900, 600, name);
+        await bottom.print(font, 800, 250, "Coding Ninjas");
+        await top1.resize(300,300);
+        await badge.resize(350,350);
+        await qr.resize(300,300);
+        await bottom.composite(top1, 500,1100)
+                .composite(badge, 1000, 1100)
+                .composite(qr, 1600, 1100)
+                .writeAsync('./final.png');
+
+        let upload = await cloudinary.uploader.upload('./final.png');
+        return upload;
+    } catch (err) {
+        console.log("error from line 36", err);
+        return {error : "error"}
+    }
+    
+    // .then(bottom => {
+        
+    //         .then(top1 => {
+                
+    //                 .then(badge => {
+                        
+    //                         .then(qr => {
+                                
+    //                                 .then(font => {
+                                        
+                                        
+                                        
+                                        
+                                        
+    //                                 });
+    //                         })
+    //                 })
+    //         })
+    // })
+    // .catch(err => {
+        
+    // });
+}
+
+module.exports.cirtificate = async function(req, res){
+    try {
+        let badgeUrl = req.body.badgeUrl;
+        let badgeQr = req.body.badgeQr;
+        let a = await createCirtificate(badgeUrl, badgeQr);
+        return res.status(200).json({
+            success : true,
+            data : a
+        })
+    } catch (err) {
+        console.log(err);
+        return res.status(200).json({
+            success : false,
+            message : "Interval server error"
+        })
+    }
+    
+}

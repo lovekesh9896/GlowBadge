@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="/css/client-timeline.css">
+<link rel="stylesheet" href="https://unpkg.com/treeflex/dist/css/treeflex.css">
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<!-- -------------- Header ---------------------- -->
+<div id="wrapper-div">
+    <div id="left">
+        <div id="top-bar-left-section">
+            <div id="website-logo">
+              <a href="/"><img src="/images/website-icon.svg" alt="" /></a>
+              <a href="/"><p>GlowBadge</p></a>
+            </div>
+            <div id="website-links">
+              <a href="/clients/console" class="links ">Console</a>
+              <a href="/clients/timeline" class="links active">Timeline</a>
+              <a href="/clients/statics" class="links">Statics</a>
+              <input type="text" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div id="top-bar-rigth-section">
+            <div id="profile-image">
+              <img src="/images/profile.jpg" alt="" />
+            </div>
+            <div id="user-info">
+              <p style="font-weight: bold">Lovekesh</p>
+              <p>Administator</p>
+            </div>
+            <div id="drop-down">
+              <span class="material-icons"> keyboard_arrow_down </span>
+              <div id="drop-down-hidden">
+                <a href="/clients/sign-out">Log out</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+<div id="wrapper-div-sections">
+    <div id="left-section">
+        <h3>Create Timeline</h3>
+        <img src="/images/create-timeline-hero-image.svg">
+        <input id="input-name" type="text" name="timeline-name" placeholder="Enter timeline name">
+        <button id="create-timeline-button">Create Timeline</button>
+        <!-- Move this into Backdrop -->
+        <div id="create-timeline">
+            <div class="full-width-text">Create Timeline</div>
+            <div class="tf-tree">
+              <ul>
+                <li>
+                  <span class="tf-nc">Root<input type="text" /></span>
+                </li>
+              </ul>
+            </div>
+            <button id="submit-timeline">Submit Timeline</button>
+          </div>
+    </div>
+    <div id="right-section">
+      <!-- Timelien display -->
+        <div id="main-container">
+            <% if(user.timeline.length > 0) { %>
+              <% for(let i=0;i<user.timeline.length;i++){ %>
+                  <div class="timeline">
+                      <div class="full-width-text"><%= user.timeline[i].name %></div>
+                      <div class="tf-tree">
+                          <%- user.timeline[i].content %>
+                      </div>
+                      <div id="timeline-options">
+                          <span class="material-icons">edit</span>
+                          <span class="material-icons">delete</span>
+                      </div>
+                  </div>
+              
+              <% } %>
+              <!-- If not timeline is available -->
+            <% }else { %> 
+              <div id="no-display">
+                  <p>
+                    Your created timelines will show here.
+                  </p>
+                  <p>
+                    Click on the Create Timeline button to start your first timeline
+                  </p>
+              </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<!--  Backdrop for creating new timeline -->
+<div id="backdrop">
+    
+</div>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/client-timeline.js"></script>
+
