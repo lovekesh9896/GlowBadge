@@ -12,7 +12,7 @@ const MongoStore = require("connect-mongo")(session);
 
 // req sixe in fileSystemApi is larger because all the badges
 app.use(express.json({ limit: "70mb" }));
-app.use(express.urlencoded({ limit: "70mb" })); // remove this
+app.use(express.urlencoded({ limit: "70mb", extended : true }));
 
 app.use(cookieParser());
 
@@ -53,8 +53,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
-console.log("process.env", process.env.USER_NAME);
-console.log("process.env.pass",process.env.PASS);
+
 // use express router
 app.use("/", require("./routes"));
 

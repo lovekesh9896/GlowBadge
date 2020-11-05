@@ -15,7 +15,7 @@
             <div id="website-links">
               <a href="/clients/console" class="links ">Console</a>
               <a href="/clients/timeline" class="links active">Timeline</a>
-              <a href="/clients/statics" class="links">Statics</a>
+              <a href="/clients/statics" class="links">Statistics</a>
               <input type="text" placeholder="Search" />
             </div>
         </div>
@@ -26,7 +26,7 @@
               <img src="/images/profile.jpg" alt="" />
             </div>
             <div id="user-info">
-              <p style="font-weight: bold">Lovekesh</p>
+              <p style="font-weight: bold"><%= user.name %></p>
               <p>Administator</p>
             </div>
             <div id="drop-down">
@@ -83,6 +83,13 @@
                   </p>
                   <p>
                     Click on the Create Timeline button to start your first timeline
+                  </p>
+                  <p>
+                    When you write badge names in the branches they will be automatically converted into badge images.
+                  </p>
+                  <p>
+                    Make sure you write badge name with extension
+                    Otherwise it will display as normal text
                   </p>
               </div>
             <% } %>

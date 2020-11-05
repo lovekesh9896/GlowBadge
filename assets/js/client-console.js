@@ -96,7 +96,7 @@ $(document).ready(async () => {
         location.reload();
         new Noty({
           text: 'File System Updated Successfully',
-          type: 'error', 
+          type: 'success', 
           theme: "relax", 
           timeout: "1500"
       }).show();

@@ -240,6 +240,10 @@
   display: initial;
 }
 
+input:focus{
+  display: initial;
+}
+
 #main-container input {
   display: none;
 }

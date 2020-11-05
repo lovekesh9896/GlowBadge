@@ -19,13 +19,15 @@ $("#create-timeline-button").on("click", function (e) {
   $("#create-timeline").css("display", "flex");
   $(".full-width-text").first().text($("#input-name").val());
 });
+
+
 //  ////// handling adding nodes to the tree
 $(".tf-tree").on("keyup", "input", function (e) {
   if (e.keyCode == 13) {
     var value = $(e.target).val();
     var span = $(e.target).parent();
     var ulList = span.next()[0];
-    console.log(ulList);
+    // console.log(ulList);
     if (typeof ulList !== "undefined" && ulList.tagName == "UL") {
       $(ulList).append(
         `<li><span class="tf-nc">${value}<input type="text"></span></li>`
@@ -35,6 +37,7 @@ $(".tf-tree").on("keyup", "input", function (e) {
         `<ul><li><span class="tf-nc">${value}<input type="text"></span></li></ul>`
       );
     }
+    $(e.target).val('');
   }
 });
 // //// submit timeline

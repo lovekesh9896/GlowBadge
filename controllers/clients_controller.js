@@ -73,7 +73,7 @@ module.exports.console = function (req, res) {
   if (req.isAuthenticated()) {
     return res.render("client_console", {
       title: "Client Console",
-      user: req.user.email,
+      user: req.user,
       fileSystem: req.user.fileSystem,
     });
   } else {

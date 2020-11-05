@@ -13,7 +13,7 @@
             <div id="website-links">
               <a href="/clients/console" class="links ">Console</a>
               <a href="/clients/timeline" class="links ">Timeline</a>
-              <a href="/clients/statics" class="links active">Statics</a>
+              <a href="/clients/statics" class="links active">Statistics</a>
               <input type="text" placeholder="Search" />
             </div>
         </div>
@@ -24,7 +24,7 @@
               <img src="/images/profile.jpg" alt="" />
             </div>
             <div id="user-info">
-              <p style="font-weight: bold">Lovekesh</p>
+              <p style="font-weight: bold"><%= user.name %></p>
               <p>Administator</p>
             </div>
             <div id="drop-down">
@@ -41,7 +41,7 @@
     <div id="left-section">
         <h3>Total Badges delivered</h3>
         <img src="/images/standing-boy.jpeg" alt="standing boy">
-        <button><%= eval(user.badgeStatics.join('+')) %></button>
+        <button><%= eval(user.badgeStatics.join('+')) || 0 %></button> 
     </div>
     <% if(user.badgeId.length > 0) { %>
         <div id="right-section">
@@ -140,7 +140,7 @@
         </div>
     <% }else{ %> 
         <div id="temp-div">
-            <strong>Please start giving badges to students to see statics data</strong>
+            <strong>Please start giving badges to students to see statistics data</strong>
         </div>
     <% } %>
     
