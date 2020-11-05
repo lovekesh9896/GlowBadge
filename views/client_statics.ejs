@@ -43,7 +43,7 @@
         <img src="/images/standing-boy.jpeg" alt="standing boy">
         <button><%= eval(user.badgeStatics.join('+')) || 0 %></button> 
     </div>
-    <% if(user.badgeId.length > 0) { %>
+    <% if(user.badgeStatics.length > 0) { %>
         <div id="right-section">
             <h3 class="statistics-heading">Badge Statistics</h3>
             <div id="badge-statics">
