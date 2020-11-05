@@ -19,7 +19,7 @@ module.exports.sendBadge = async function(req,res){
                 let name = path.slice(path.lastIndexOf('/')+1);
                 let badge = await Badge.findOne({name : name});
                 console.log(badge);
-                console.log(user._id);
+                console.log(user._id );
                 if(badge && badge.user == user._id){ // badge found
                     let student = await Student.findOne({email : req.body.email});
                     if(student){ // student exist
