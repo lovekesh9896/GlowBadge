@@ -5,17 +5,21 @@ const Student = require('../../models/student');
 // find that user(client), checks for auth and then update the syudent db for 
 // that badge 
 module.exports.sendBadge = async function(req,res){
-    
+    console.log("here");
     try {
         let clientId = req.body.ClientId;
         let clientSecret = req.body.ClientSecret;
         let user = await User.findOne({clientId : clientId});
+        console.log(user);
+        console.log(clientSecret);
         if(user){ // user found
             if(user.clientSecret === clientSecret){ // user authenticated
+                console.log("here too");
                 var path = req.body.Path;
                 let name = path.slice(path.lastIndexOf('/')+1);
                 let badge = await Badge.findOne({name : name});
-                if(badge && badge.user === user.clientId){ // badge found
+                console.log(badge);
+                if(badge && badge.clientId === user.clientId){ // badge found
                     let student = await Student.findOne({email : req.body.email});
                     if(student){ // student exist
                         student.lastBadge = new Date();

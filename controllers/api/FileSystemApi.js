@@ -26,7 +26,8 @@ let findbase64AndUpload = async function(fileSystem ,user){
                         let badge = await Badge.create({
                             name : b.name,
                             url : upload.url,
-                            user : user.clientId
+                            user : user._id,
+                            clientId : user.clientId
                         });
                         b.url = upload.url;
                         await user.badgeId.push(badge);
@@ -44,7 +45,8 @@ let findbase64AndUpload = async function(fileSystem ,user){
                 let badge = await Badge.create({
                     name : a.name,
                     url : upload.url,
-                    user : user._id
+                    user : user._id,
+                    clientId : user.clientId
                 });
                 a.url = upload.url;
                 await user.badgeId.push(badge);

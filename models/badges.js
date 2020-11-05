@@ -16,6 +16,9 @@ const badgeSchema = new mongoose.Schema({
         type:  mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    clientId : {
+        type : String
+    },
     timesUsed : {
         type : Number,
         default : 0
