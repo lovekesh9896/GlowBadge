@@ -22,7 +22,7 @@
 
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
-    "jimp": "^0.16.1",
+    "jimp": "^0.22.0",
     "mongoose": "^5.11.7",
     "nodemailer": "^6.4.16",
     "nodemon": "^2.0.6",
